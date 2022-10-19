@@ -1,9 +1,9 @@
-let mouseSmoothing = 0.99999;  // Smoothing co-efficient for an FIR filter on mouse position.
-let mouseEffectScale = 50;  // Higher values reduce the effect of the mouse position.
+let mouseSmoothing = 0.9;  // Smoothing co-efficient for an FIR filter on mouse position.
+let mouseEffectScale = 1000;  // Higher values reduce the effect of the mouse position.
 let hueInc = 0.1;
 let num = 50;
 let margin = 0;
-let gutter = 5; //distance between each cell
+let gutter = 3; //distance between each cell
 
 // variable used to store the current frame rate value
 let frame_rate_value;
@@ -74,6 +74,10 @@ function movingCircle(x, y, size, circleNum) {
   
   fill(shapeHue,255,255,100);
   rect(tempX, tempY, size*1, size*1);
+}
+
+function mousePressed() {
+  save('Stars.png');
 }
 
 function windowResized() {
