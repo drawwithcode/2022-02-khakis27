@@ -1,9 +1,9 @@
 let mouseSmoothing = 0.99999;  // Smoothing co-efficient for an FIR filter on mouse position.
 let mouseEffectScale = 50;  // Higher values reduce the effect of the mouse position.
 let hueInc = 0.1;
-let num = 30;
-let margin = 100;
-let gutter = 0; //distance between each cell
+let num = 50;
+let margin = 0;
+let gutter = 5; //distance between each cell
 
 // variable used to store the current frame rate value
 let frame_rate_value;
@@ -15,8 +15,8 @@ let smoothMouseY = 0;
 var cnv;
 
 function centerCanvas() {
-  var x = (windowWidth - width) / 2;
-  var y = (windowHeight - height) / 2;
+  var x = (windowWidth - width) / 3;
+  var y = (windowHeight - height) / 3;
   cnv.position(x, y);
 }
 
@@ -28,7 +28,7 @@ function setup() {
   smooth();
   colorMode(HSB);
 
-  frame_rate_value = 60;
+  frame_rate_value = 40;
   frameRate(frame_rate_value);
   rectMode(CENTER);
 }
@@ -38,7 +38,7 @@ function draw() {
   background( hue%256, 255, 20, 255);
 
 
-  let cellsize = ( width - (2 * margin) - gutter * (num - 1) ) / (num - 1);
+  let cellsize = ( width - (2 * margin) - gutter * (num - 4) ) / (num - 4);
   
   hue = (hue + hueInc) % 256;
   
